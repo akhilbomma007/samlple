@@ -7,6 +7,7 @@ import json
 app = Flask(__name__)
 
 @app.route('/PushNotification',methods = ['POST'])
+
 def send_push_notification():
     input_params = request.form.to_dict()
     if input_params is not None and isinstance(input_params,dict) :
@@ -16,7 +17,7 @@ def send_push_notification():
         """serverToken = 'AAAAZZhiaKM:APA91bHQRW2wjzDuL66NIgYtiDu2Zz0kPv1Jt8MvVyyeFD_m5IZO8_j_5CJVvWgXO6aSEMgplPpoBTBAws2zEPM1yotS3IjH23MZsRBUhNEgCWtyjRUvDxlD9EFZLAIOL2nohCWjDZ3-'
         deviceToken = 'cBxjZvyfWf8:APA91bFzRT0qRNvAGipKBIsu4zehexTmU-c4GjUDKBazo87ypsb-_N9ha8v1KHruYRa40RPun7azFpIzN5Rc7vsFCLjcggUan2-Ve6O3Qsj2F3cPhp-hu3H5017V2Xkr0T9WtzQelAo-'
         """
-        serverToken = 'AAAAZZhiaKM:APA91bHQRW2wjzDuL66NIgYtiDu2Zz0kPv1Jt8MvVyyeFD_m5IZO8_j_5CJVvWgXO6aSEMgplPpoBTBAws2zEPM1yotS3IjH23MZsRBUhNEgCWtyjRUvDxlD9EFZLAIOL2nohCWjDZ3-
+        serverToken = 'AAAAZZhiaKM:APA91bHQRW2wjzDuL66NIgYtiDu2Zz0kPv1Jt8MvVyyeFD_m5IZO8_j_5CJVvWgXO6aSEMgplPpoBTBAws2zEPM1yotS3IjH23MZsRBUhNEgCWtyjRUvDxlD9EFZLAIOL2nohCWjDZ3-'
         #serverToken = input_params.get('serverToken')
         deviceToken = input_params.get('deviceToken')
         LociiFlag = input_params.get('LociiFlag')
@@ -42,7 +43,7 @@ def send_push_notification():
         return json.dumps({'status': 0})
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port='8000', debug=True)
 
 
 
